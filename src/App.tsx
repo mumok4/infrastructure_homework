@@ -26,7 +26,7 @@ function App() {
             <h1>Rainbow text</h1>
             <pre className={rainbow}>{ASCII}</pre>
             <button onClick={() => setIsRainbow(!isRainbow)}>
-                {isRainbow ? 'Turn the rainbow off' : 'Turn the rainbow on'}
+                {isRainbow ? 'Turn the rainbow off!' : 'Turn the rainbow on!'}
             </button>
         </div>
     );
