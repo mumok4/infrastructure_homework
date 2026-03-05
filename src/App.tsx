@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import classNames from 'classnames';
+import './App.css';
+
+const ASCII = `
+.sSSS SSSSS .sSSS SSSSS
+SSSSS SSSSS SSSSS SSSSS       .sSSSSSSSs. .sSSS s.
+S SSS SSSSS S SSS SSSSS       S SSS SSSSS S SSS SSSs.
+S  SS SSSSS S  SS SSSSS       S  SS SSSS' S  SS SSSSS
+S..SSsSSSSS S..SSsSSSSS       S..SSsSSSa. S..SS SSSSS
+S:::S SSSSS S:::S SSSSS       S:::S SSSSS S:::S SSSSS
+S;;;S SSSSS S;;;S SSSSS .sSs. S;;;S SSSSS S;;;S SSSSS
+S%%%S SSSSS S%%%S SSSSS S%%%S S%%%S SSSSS S%%%S SSSSS
+SSSSS SSSSS SSSSS SSSSS \`:;:' SSSSS SSSSS SSSSSsSSSSS
+`;
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [isRainbow, setIsRainbow] = useState(false);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const rainbow = classNames('ascii-art', {
+        'is-rainbow': isRainbow,
+    });
+
+    return (
+        <div className="container">
+            <h1>Rainbow text</h1>
+            <pre className={rainbow}>{ASCII}</pre>
+            <button onClick={() => setIsRainbow(!isRainbow)}>
+                {isRainbow ? 'Turn the rainbow off' : 'Turn the rainbow on'}
+            </button>
+        </div>
+    );
 }
 
-export default App
+export default App;
